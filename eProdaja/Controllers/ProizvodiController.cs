@@ -9,27 +9,27 @@ namespace eProdaja.Controllers
     [Route("[controller]")]
     public class ProizvodiController:ControllerBase
     {
-        private readonly IProizvodiService _proizvodiService;
+        //private readonly IProizvodiService _proizvodiService;
 
-        public ProizvodiController(IProizvodiService proizvodiService)
-        {
-            _proizvodiService = proizvodiService;
-        }
+        //public ProizvodiController(IProizvodiService proizvodiService)
+        //{
+        //    _proizvodiService = proizvodiService;
+        //}
 
-        [HttpGet]
-        public IEnumerable<Proizvodi> Get()
-        {
+        //[HttpGet]
+        //public IEnumerable<Proizvodi> Get()
+        //{
            
-            return _proizvodiService.Get();
-        }
+        //    return _proizvodiService.Get();
+        //}
 
 
 
-        [HttpGet("{id}")]
-        public Proizvodi GetById(int id)
-        {
+        //[HttpGet("{id}")]
+        //public Proizvodi GetById(int id)
+        //{
 
-            return _proizvodiService.GetById(id);
-        }
+        //    return _proizvodiService.GetById(id);
+        //}
     }
 }

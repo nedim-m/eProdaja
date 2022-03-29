@@ -9,8 +9,8 @@ namespace eProdaja.Services
     public interface IProizvodiService
     {
 
-        IEnumerable<Proizvodi> Get();
-        Proizvodi GetById(int id);
+        //IEnumerable<Proizvodi> Get();
+        //Proizvodi GetById(int id);
 
     }
 }
