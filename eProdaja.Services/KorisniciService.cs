@@ -9,22 +9,14 @@ using System.Threading.Tasks;
 
 namespace eProdaja.Services
 {
-    public class KorisniciService : IKorisniciService
+    public class KorisniciService : Service<Model.Korisnici, Database.Korisnici, object>, IKorisniciService
     {
-        private readonly eProdajaContext _db;
-        private readonly IMapper _mapper;
 
-        public KorisniciService(eProdajaContext db, IMapper mapper)
+        public KorisniciService(eProdajaContext db, IMapper mapper) : base(db, mapper)
         {
-            _db = db;
-            _mapper = mapper;
+
         }
 
-        public IEnumerable<Model.Korisnici> Get()
-        {
-            var result = _db.Korisnicis.ToList();
-
-            return _mapper.Map<List<Model.Korisnici>>(result);
-        }
+       
     }
 }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace eProdaja.Services
 {
-    public  interface IKorisniciService
+    public  interface IKorisniciService:IService<Korisnici, object>
     {
-        IEnumerable<Korisnici> Get();
+        
 
     }
 }
