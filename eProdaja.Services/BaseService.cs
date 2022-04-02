@@ -12,32 +12,24 @@ namespace eProdaja.Services
 {
     public class BaseService<T, TDb, TSearch> : IService<T, TSearch> where T : class where TDb : class where TSearch : BaseSearchObject
     {
-        private readonly eProdajaContext _context;
+        public eProdajaContext _context;
 
-
-
-        private readonly IMapper _mapper;
+        public IMapper _mapper;
         public BaseService(eProdajaContext context, IMapper mapper)
         {
             _context = context;
-
-
-
             _mapper = mapper;
         }
 
-        public virtual IEnumerable<T> Get(TSearch search=null)
+        public virtual IEnumerable<T> Get(TSearch search = null)
         {
             var entity = _context.Set<TDb>().AsQueryable();
 
             entity = AddFilter(entity, search);
 
-            if(search?.Page.HasValue==true && search?.PageSize.HasValue ==true)
+            if (search?.Page.HasValue == true && search?.PageSize.HasValue == true)
             {
-
-
                 entity = entity.Take(search.PageSize.Value).Skip(search.Page.Value * search.PageSize.Value);//pagging
-                
             }
 
 
@@ -48,7 +40,7 @@ namespace eProdaja.Services
         }
 
 
-        public virtual IQueryable<TDb> AddFilter(IQueryable<TDb>query,TSearch search = null)
+        public virtual IQueryable<TDb> AddFilter(IQueryable<TDb> query, TSearch search = null)
         {
             return query;
 

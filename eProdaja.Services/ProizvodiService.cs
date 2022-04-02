@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using eProdaja.Model.Requests;
 using eProdaja.Model.SearchObjects;
 using eProdaja.Services.Database;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace eProdaja.Services
 {
-    public class ProizvodiService : BaseService<Model.Proizvodi, Database.Proizvodi,ProizvodiSearchObject>, IProizvodiService
+    public class ProizvodiService : BaseCRUDService<Model.Proizvodi, Database.Proizvodi,ProizvodiSearchObject,ProizvodiInsertRequest, ProizvodiUpdateRequest>, IProizvodiService
     {
         public ProizvodiService(eProdajaContext context, IMapper mapper) : base(context, mapper)
         {
@@ -33,5 +34,6 @@ namespace eProdaja.Services
             return filteredQuery;
         }
 
+    
     }
 }
