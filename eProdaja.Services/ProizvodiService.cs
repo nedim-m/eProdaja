@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace eProdaja.Services
 {
-    public class ProizvodiService : Service<Model.Proizvodi, Database.Proizvodi,ProizvodiSearchObject>, IProizvodiService
+    public class ProizvodiService : BaseService<Model.Proizvodi, Database.Proizvodi,ProizvodiSearchObject>, IProizvodiService
     {
         public ProizvodiService(eProdajaContext context, IMapper mapper) : base(context, mapper)
         {
@@ -27,6 +27,8 @@ namespace eProdaja.Services
             {
                 filteredQuery = filteredQuery.Where(x => x.Naziv.Contains(search.Naziv));
             }
+
+          
 
             return filteredQuery;
         }

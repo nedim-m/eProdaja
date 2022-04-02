@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using eProdaja.Model.SearchObjects;
 using eProdaja.Services.Database;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace eProdaja.Services
 {
-    public class Service<T, TDb, TSearch> : IService<T, TSearch> where T : class where TDb : class where TSearch : class
+    public class BaseService<T, TDb, TSearch> : IService<T, TSearch> where T : class where TDb : class where TSearch : BaseSearchObject
     {
         private readonly eProdajaContext _context;
 
 
 
         private readonly IMapper _mapper;
-        public Service(eProdajaContext context, IMapper mapper)
+        public BaseService(eProdajaContext context, IMapper mapper)
         {
             _context = context;
 
@@ -30,6 +31,14 @@ namespace eProdaja.Services
             var entity = _context.Set<TDb>().AsQueryable();
 
             entity = AddFilter(entity, search);
+
+            if(search?.Page.HasValue==true && search?.PageSize.HasValue ==true)
+            {
+
+
+                entity = entity.Take(search.PageSize.Value).Skip(search.Page.Value * search.PageSize.Value);//pagging
+                
+            }
 
 
             var list = entity.ToList();
