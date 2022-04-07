@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using eProdaja.Model;
+using eProdaja.Model.Requests;
 using eProdaja.Model.SearchObjects;
 using eProdaja.Services.Database;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace eProdaja.Services
 {
-    public class KorisniciService : BaseService<Model.Korisnici, Database.Korisnici, KorisniciSearchObject>, IKorisniciService
+    public class KorisniciService : BaseCRUDService<Model.Korisnici,Database.Korisnici,KorisniciSearchObject,KorisniciInsertRequest,KorisniciUpdateRequest>,IKorisniciService
     {
 
         public KorisniciService(eProdajaContext db, IMapper mapper) : base(db, mapper)

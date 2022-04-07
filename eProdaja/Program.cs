@@ -18,6 +18,8 @@ builder.Services.AddTransient<IProizvodiService, ProizvodiService>();// svaki pu
                                                                      //Jednom ucitat i to je to.
 
 builder.Services.AddTransient<IKorisniciService, KorisniciService>();
+builder.Services.AddTransient<IJediniceMjereService, JediniceMjereService>();
+builder.Services.AddTransient<IVrsteProizvodumService, VrsteProizvodumService>();
 
 builder.Services.AddAutoMapper(typeof(IKorisniciService));
 

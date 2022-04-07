@@ -14,10 +14,21 @@ namespace eProdaja.Services
         {
             CreateMap<Database.Korisnici, Model.Korisnici>();
             CreateMap<Database.Proizvodi, Model.Proizvodi>();
+            CreateMap<Database.JediniceMjere, Model.JediniceMjere>();
+            CreateMap<Database.VrsteProizvodum, Model.VrsteProizvodum>();
+
 
 
             CreateMap<ProizvodiInsertRequest, Database.Proizvodi>();
             CreateMap<ProizvodiUpdateRequest, Database.Proizvodi>();
+
+            CreateMap<KorisniciInsertRequest, Database.Korisnici>();
+            CreateMap<KorisniciUpdateRequest, Database.Korisnici>();
+
+            CreateMap<JediniceMjereUpsertRequest, Database.JediniceMjere>();
+
+            CreateMap<VrsteProizvodumUpsertRequest, Database.VrsteProizvodum>();
+
         }
     }
 }
