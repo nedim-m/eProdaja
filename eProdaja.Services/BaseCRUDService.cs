@@ -17,11 +17,13 @@ namespace eProdaja.Services
         {
         }
 
-        public T Insert(TInsert insert)
+        public virtual T Insert(TInsert insert)
         {
             var set = _context.Set<TDb>();
             TDb entity = _mapper.Map<TDb>(insert);
             set.Add(entity);
+
+            BeforeInsert(insert, entity);
 
             _context.SaveChanges();
 
@@ -29,7 +31,12 @@ namespace eProdaja.Services
 
         }
 
-        public T Update(int id, TUpdate update)
+        public virtual void BeforeInsert(TInsert insert, TDb entitiy)
+        {
+
+        }
+
+        public virtual T Update(int id, TUpdate update)
         {
             var set = _context.Set<TDb>();
 

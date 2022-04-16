@@ -13,20 +13,21 @@ namespace eProdaja.Services
         public MappingProfile()
         {
             CreateMap<Database.Korisnici, Model.Korisnici>();
-            CreateMap<Database.Proizvodi, Model.Proizvodi>();
-            CreateMap<Database.JediniceMjere, Model.JediniceMjere>();
-            CreateMap<Database.VrsteProizvodum, Model.VrsteProizvodum>();
 
-
-
-            CreateMap<ProizvodiInsertRequest, Database.Proizvodi>();
-            CreateMap<ProizvodiUpdateRequest, Database.Proizvodi>();
 
             CreateMap<KorisniciInsertRequest, Database.Korisnici>();
             CreateMap<KorisniciUpdateRequest, Database.Korisnici>();
 
+            CreateMap<Database.Proizvodi, Model.Proizvodi>();
+            CreateMap<Database.JediniceMjere, Model.JediniceMjere>();
+
             CreateMap<JediniceMjereUpsertRequest, Database.JediniceMjere>();
 
+            CreateMap<ProizvodiInsertRequest, Database.Proizvodi>();
+            CreateMap<ProizvodiUpdateRequest, Database.Proizvodi>();
+
+
+            CreateMap<Database.VrsteProizvodum, Model.VrsteProizvodum>();
             CreateMap<VrsteProizvodumUpsertRequest, Database.VrsteProizvodum>();
 
         }

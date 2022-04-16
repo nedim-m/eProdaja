@@ -11,6 +11,7 @@ namespace eProdaja.Services
         IEnumerable<T> Get(TSearch search=null);
         T GetById(int id);
 
+        
     }
 
 }

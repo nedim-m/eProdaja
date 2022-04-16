@@ -29,14 +29,12 @@ namespace eProdaja.Services
 
             if (search?.Page.HasValue == true && search?.PageSize.HasValue == true)
             {
-                entity = entity.Take(search.PageSize.Value).Skip(search.Page.Value * search.PageSize.Value);//pagging
+                entity = entity.Take(search.PageSize.Value).Skip(search.Page.Value * search.PageSize.Value);
             }
 
-
             var list = entity.ToList();
+       
             return _mapper.Map<IList<T>>(list);
-
-
         }
 
 
@@ -55,6 +53,6 @@ namespace eProdaja.Services
 
         }
 
-
+     
     }
 }

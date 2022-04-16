@@ -1,5 +1,6 @@
 using eProdaja.Services;
 using eProdaja.Services.Database;
+using eProdaja.Services.ProductStateMachine;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +21,16 @@ builder.Services.AddTransient<IProizvodiService, ProizvodiService>();// svaki pu
 builder.Services.AddTransient<IKorisniciService, KorisniciService>();
 builder.Services.AddTransient<IJediniceMjereService, JediniceMjereService>();
 builder.Services.AddTransient<IVrsteProizvodumService, VrsteProizvodumService>();
+
+//register state machine all states
+builder.Services.AddTransient<BaseState>();
+builder.Services.AddTransient<InitialProductState>();
+builder.Services.AddTransient<DraftProductState>();
+builder.Services.AddTransient<ActiveProductState>();
+
+
+
+
 
 builder.Services.AddAutoMapper(typeof(IKorisniciService));
 
