@@ -11,7 +11,11 @@ namespace eProdaja.WinUI
     public class APIService
     {
         private string _resourceName = null;
-        public string _endPoint = "http://localhost:5095/";
+        public string _endPoint = "https://localhost:7095/";
+
+        public static string Username = null;
+        public static string Password = null;
+
         public APIService(string resourceName)
         {
             _resourceName=resourceName;
@@ -30,7 +34,7 @@ namespace eProdaja.WinUI
 
                 query= await search.ToQueryString();
             }
-            var list = await $"{_endPoint}{_resourceName}?{query}".GetJsonAsync<T>();
+            var list = await $"{_endPoint}{_resourceName}?{query}".WithBasicAuth(Username,Password).GetJsonAsync<T>();
 
             
 
@@ -39,14 +43,14 @@ namespace eProdaja.WinUI
 
         public async Task<T> GetById<T>(object id)
         {
-            var result = await $"{_endPoint}{_resourceName}/{id}".GetJsonAsync<T>();
+            var result = await $"{_endPoint}{_resourceName}/{id}".WithBasicAuth(Username, Password).GetJsonAsync<T>();
 
             return result;
         }
 
         public async Task<T> Post<T>(object request)
         {
-            var result = await $"{_endPoint}{_resourceName}".PostJsonAsync(request).ReceiveJson<T>();
+            var result = await $"{_endPoint}{_resourceName}".WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
 
             return result;
         }
@@ -54,7 +58,7 @@ namespace eProdaja.WinUI
 
         public async Task<T> Put<T>(object id, object request)
         {
-            var result = await $"{_endPoint}{_resourceName}/{id}".PutJsonAsync(request).ReceiveJson<T>();
+            var result = await $"{_endPoint}{_resourceName}/{id}".WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
 
             return result;
         }

@@ -41,6 +41,11 @@ public class BasicAuthanticationhandler : AuthenticationHandler<AuthenticationSc
             new Claim(ClaimTypes.Name, user.Ime)
         };
 
+        foreach(var role in user.KorisniciUloges)
+        {
+            claims.Add(new Claim(ClaimTypes.Role, role.Uloga.Naziv));
+        }
+
         var identity = new ClaimsIdentity(claims, Scheme.Name);
         var principal = new ClaimsPrincipal(identity);
 

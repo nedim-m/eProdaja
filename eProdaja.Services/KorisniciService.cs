@@ -28,7 +28,7 @@ namespace eProdaja.Services
 
             foreach (var ulogaId in insert.UlogeIdList)
             {
-                KorisniciUloge KorisniciUloge = new KorisniciUloge();
+                Database.KorisniciUloge KorisniciUloge = new Database.KorisniciUloge();
                 KorisniciUloge.UlogaId=ulogaId;
                 KorisniciUloge.KorisnikId = entity.KorisnikId;
                 KorisniciUloge.DatumIzmjene = DateTime.Now;

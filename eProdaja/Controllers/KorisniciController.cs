@@ -8,11 +8,23 @@ using Microsoft.AspNetCore.Mvc;
 namespace eProdaja.Controllers
 {
 
-    [Authorize]
+    
     public class KorisniciController : BaseCrudController<Model.Korisnici,KorisniciSearchObject,KorisniciInsertRequest,KorisniciUpdateRequest>
     {
         public KorisniciController(IKorisniciService service) : base(service)
         {
         }
+
+        [Authorize("Administrator")]
+        public override Korisnici Insert([FromBody] KorisniciInsertRequest insert)
+        {
+            return base.Insert(insert);
+        }
+        [Authorize("Administrator")]
+        public override Korisnici Update(int id, [FromBody] KorisniciUpdateRequest update)
+        {
+            return base.Update(id, update);
+        }
+
     }
 }
