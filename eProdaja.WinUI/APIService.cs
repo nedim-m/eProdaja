@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using eProdaja.Model;
 
 namespace eProdaja.WinUI
 {
@@ -18,14 +19,25 @@ namespace eProdaja.WinUI
 
 
 
-        public async Task<T> Get<T>()
+        public async Task<T> Get<T>(object search = null)
         {
-            var list = await $"{_endPoint}{_resourceName}".GetJsonAsync<T>();
+           
+            var query = "";
+
+            if (search!=null)
+            {
+                
+
+                query= await search.ToQueryString();
+            }
+            var list = await $"{_endPoint}{_resourceName}?{query}".GetJsonAsync<T>();
+
+            
 
             return list;
         }
 
-        public async Task<T> GetById <T>(object id)
+        public async Task<T> GetById<T>(object id)
         {
             var result = await $"{_endPoint}{_resourceName}/{id}".GetJsonAsync<T>();
 
@@ -40,7 +52,7 @@ namespace eProdaja.WinUI
         }
 
 
-        public async Task<T> Put<T>(object id,object request)
+        public async Task<T> Put<T>(object id, object request)
         {
             var result = await $"{_endPoint}{_resourceName}/{id}".PutJsonAsync(request).ReceiveJson<T>();
 

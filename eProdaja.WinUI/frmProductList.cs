@@ -26,19 +26,19 @@ namespace eProdaja.WinUI
         {
             var list = await ProductService.Get<List<Proizvodi>>();
 
-            
+            dgvProduct.DataSource=list;
             
 
          
         }
 
-        private async void button1_Click(object sender, EventArgs e)
-        {
-            var result = await ProductService.GetById<Proizvodi>(12);
+        //private async void button1_Click(object sender, EventArgs e)
+        //{
+        //    var result = await ProductService.GetById<Proizvodi>(12);
 
-            result.Naziv="Updated product from WinUI";
+        //    result.Naziv="Updated product from WinUI";
 
-           // var update = await ProductService.Put<Proizvodi>(result.ProizvodId, result); // Test for update
-        }
+        //   // var update = await ProductService.Put<Proizvodi>(result.ProizvodId, result); // Test for update
+        //}
     }
 }
