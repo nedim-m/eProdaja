@@ -8,5 +8,10 @@ namespace eProdaja.Model.SearchObjects
     {
         public string KorisnickoIme { get; set; }
         public string NameFTS { get; set; }//FTS stands for full text search
+
+        public string Email { get; set; }
+
+        public bool InludeRoles { get; set; }
+
     }
 }

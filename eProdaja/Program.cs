@@ -41,6 +41,7 @@ builder.Services.AddTransient<IProizvodiService, ProizvodiService>();// svaki pu
 builder.Services.AddTransient<IKorisniciService, KorisniciService>();
 builder.Services.AddTransient<IJediniceMjereService, JediniceMjereService>();
 builder.Services.AddTransient<IVrsteProizvodumService, VrsteProizvodumService>();
+builder.Services.AddTransient<IUlogeService, UlogeService>();
 
 //register state machine all states
 builder.Services.AddTransient<BaseState>();

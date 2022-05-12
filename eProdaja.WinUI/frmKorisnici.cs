@@ -18,6 +18,7 @@ namespace eProdaja.WinUI
         public frmKorisnici()
         {
             InitializeComponent();
+            dgvKorisnici.AutoGenerateColumns=false;
         }
 
         private async void btnShow_Click(object sender, EventArgs e)
@@ -25,6 +26,7 @@ namespace eProdaja.WinUI
             var searchObject = new KorisniciSearchObject();
             searchObject.KorisnickoIme= txtUsername.Text;
             searchObject.NameFTS=txtName.Text;
+            searchObject.InludeRoles=true;
 
             var list = await KorisniciService.Get<List<Korisnici>>(searchObject);
 

@@ -34,21 +34,30 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UlogaIme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvKorisnici
             // 
             this.dgvKorisnici.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKorisnici.Location = new System.Drawing.Point(12, 90);
+            this.dgvKorisnici.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Ime,
+            this.Prezime,
+            this.UlogaIme,
+            this.Status});
+            this.dgvKorisnici.Location = new System.Drawing.Point(12, 88);
             this.dgvKorisnici.Name = "dgvKorisnici";
             this.dgvKorisnici.RowTemplate.Height = 25;
-            this.dgvKorisnici.Size = new System.Drawing.Size(776, 348);
+            this.dgvKorisnici.Size = new System.Drawing.Size(489, 202);
             this.dgvKorisnici.TabIndex = 0;
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(713, 38);
+            this.btnShow.Location = new System.Drawing.Point(426, 39);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(75, 23);
             this.btnShow.TabIndex = 1;
@@ -87,13 +96,36 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(169, 23);
             this.txtName.TabIndex = 4;
-            
+            // 
+            // Ime
+            // 
+            this.Ime.DataPropertyName = "Ime";
+            this.Ime.HeaderText = "Ime";
+            this.Ime.Name = "Ime";
+            // 
+            // Prezime
+            // 
+            this.Prezime.DataPropertyName = "Prezime";
+            this.Prezime.HeaderText = "Prezime";
+            this.Prezime.Name = "Prezime";
+            // 
+            // UlogaIme
+            // 
+            this.UlogaIme.DataPropertyName = "UlogeImena";
+            this.UlogaIme.HeaderText = "Uloge";
+            this.UlogaIme.Name = "UlogaIme";
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
             // 
             // frmKorisnici
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 450);
+            this.ClientSize = new System.Drawing.Size(519, 312);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
@@ -116,5 +148,9 @@
         private Label label1;
         private Label label2;
         private TextBox txtName;
+        private DataGridViewTextBoxColumn Ime;
+        private DataGridViewTextBoxColumn Prezime;
+        private DataGridViewTextBoxColumn UlogaIme;
+        private DataGridViewCheckBoxColumn Status;
     }
 }
