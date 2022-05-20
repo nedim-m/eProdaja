@@ -25,18 +25,18 @@ namespace eProdaja.WinUI
 
         public async Task<T> Get<T>(object search = null)
         {
-           
+
             var query = "";
 
             if (search!=null)
             {
-                
+
 
                 query= await search.ToQueryString();
             }
-            var list = await $"{_endPoint}{_resourceName}?{query}".WithBasicAuth(Username,Password).GetJsonAsync<T>();
+            var list = await $"{_endPoint}{_resourceName}?{query}".WithBasicAuth(Username, Password).GetJsonAsync<T>();
 
-            
+
 
             return list;
         }
@@ -50,9 +50,25 @@ namespace eProdaja.WinUI
 
         public async Task<T> Post<T>(object request)
         {
-            var result = await $"{_endPoint}{_resourceName}".WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
+            try
+            {
+                var result = await $"{_endPoint}{_resourceName}".WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
+                return result;
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+                var stringBuilder = new StringBuilder();
 
-            return result;
+                foreach(var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key},{string.Join(",",error.Value)}");
+                }
+                MessageBox.Show(stringBuilder.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return default(T);
+            }
+
+            
         }
 
 
@@ -63,4 +79,4 @@ namespace eProdaja.WinUI
             return result;
         }
     }
-}
+}  

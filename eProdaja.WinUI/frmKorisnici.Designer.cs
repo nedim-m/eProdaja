@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.dgvKorisnici = new System.Windows.Forms.DataGridView();
+            this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UlogaIme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnShow = new System.Windows.Forms.Button();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UlogaIme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,10 +50,37 @@
             this.UlogaIme,
             this.Status});
             this.dgvKorisnici.Location = new System.Drawing.Point(12, 88);
+            this.dgvKorisnici.MultiSelect = false;
             this.dgvKorisnici.Name = "dgvKorisnici";
             this.dgvKorisnici.RowTemplate.Height = 25;
+            this.dgvKorisnici.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKorisnici.Size = new System.Drawing.Size(489, 202);
             this.dgvKorisnici.TabIndex = 0;
+            this.dgvKorisnici.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKorisnici_CellDoubleClick);
+            // 
+            // Ime
+            // 
+            this.Ime.DataPropertyName = "Ime";
+            this.Ime.HeaderText = "Ime";
+            this.Ime.Name = "Ime";
+            // 
+            // Prezime
+            // 
+            this.Prezime.DataPropertyName = "Prezime";
+            this.Prezime.HeaderText = "Prezime";
+            this.Prezime.Name = "Prezime";
+            // 
+            // UlogaIme
+            // 
+            this.UlogaIme.DataPropertyName = "UlogeImena";
+            this.UlogaIme.HeaderText = "Uloge";
+            this.UlogaIme.Name = "UlogaIme";
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
             // 
             // btnShow
             // 
@@ -96,30 +123,6 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(169, 23);
             this.txtName.TabIndex = 4;
-            // 
-            // Ime
-            // 
-            this.Ime.DataPropertyName = "Ime";
-            this.Ime.HeaderText = "Ime";
-            this.Ime.Name = "Ime";
-            // 
-            // Prezime
-            // 
-            this.Prezime.DataPropertyName = "Prezime";
-            this.Prezime.HeaderText = "Prezime";
-            this.Prezime.Name = "Prezime";
-            // 
-            // UlogaIme
-            // 
-            this.UlogaIme.DataPropertyName = "UlogeImena";
-            this.UlogaIme.HeaderText = "Uloge";
-            this.UlogaIme.Name = "UlogaIme";
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
             // 
             // frmKorisnici
             // 

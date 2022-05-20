@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,8 +46,10 @@
             this.btnSacuvaj = new System.Windows.Forms.Button();
             this.chkStatus = new System.Windows.Forms.CheckBox();
             this.clbUloge = new System.Windows.Forms.CheckedListBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -102,6 +105,7 @@
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(207, 23);
             this.txtIme.TabIndex = 1;
+            this.txtIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtIme_Validating);
             // 
             // label1
             // 
@@ -205,6 +209,10 @@
             this.clbUloge.Size = new System.Drawing.Size(120, 94);
             this.clbUloge.TabIndex = 4;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // frmKorisniciDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -222,6 +230,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,5 +255,6 @@
         private Button btnSacuvaj;
         private CheckBox chkStatus;
         private CheckedListBox clbUloge;
+        private ErrorProvider errorProvider;
     }
 }

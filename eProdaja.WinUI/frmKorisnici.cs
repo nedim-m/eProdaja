@@ -33,8 +33,14 @@ namespace eProdaja.WinUI
             dgvKorisnici.DataSource=list;
         }
 
-       
+        private void dgvKorisnici_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var item = dgvKorisnici.SelectedRows[0].DataBoundItem as Korisnici;
 
-        
+            frmKorisniciDetails frm = new frmKorisniciDetails(item);
+
+            frm.ShowDialog();
+
+        }
     }
 }

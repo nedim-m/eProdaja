@@ -1,3 +1,4 @@
+using eProdaja.Filters;
 using eProdaja.Services;
 using eProdaja.Services.Database;
 using eProdaja.Services.ProductStateMachine;
@@ -9,7 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(x =>
+{
+    x.Filters.Add<ErrorFilter>();
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>

@@ -24,6 +24,11 @@ namespace eProdaja.Services
 
         public override Model.Korisnici Insert(KorisniciInsertRequest insert)
         {
+            if (insert.Password!=insert.PasswordConfirmation)
+            {
+                throw new UserException("The password and confrimation must match.");
+            }
+
             var entity = base.Insert(insert);
 
             foreach (var ulogaId in insert.UlogeIdList)
