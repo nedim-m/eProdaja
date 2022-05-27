@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eProdaja.Services", "..\ePr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eProdaja.Model", "..\eProdaja.Model\eProdaja.Model.csproj", "{12CB8B59-6636-4838-AEFC-E5C6B82A2349}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eProdaja.WinUI", "..\eProdaja.WinUI\eProdaja.WinUI.csproj", "{B5D3D5E9-2777-4AC4-B4F6-252E991E34BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eProdaja.WinUI", "..\eProdaja.WinUI\eProdaja.WinUI.csproj", "{B5D3D5E9-2777-4AC4-B4F6-252E991E34BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B5C62C4B-EB0B-4269-A2E4-1062C8FCBA8F}"
+	ProjectSection(SolutionItems) = preProject
+		..\Dockerfile = ..\Dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
