@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using eProdaja.Model;
+using eProdaja.WinUI.Properties;
 
 namespace eProdaja.WinUI
 {
     public class APIService
     {
         private string _resourceName = null;
-        public string _endPoint = "https://localhost:7095/";
+        public string _endPoint = Settings.Default.ApiURL;
 
         public static string Username = null;
         public static string Password = null;
